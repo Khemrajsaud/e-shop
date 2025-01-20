@@ -1,14 +1,27 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiSearch, CiShoppingCart, CiUser } from "react-icons/ci";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Model from "./Model";
 import Login from "./Login";
 import Register from "./Register";
+import { setSearchTerm } from "../redux/productSclice";
 
 const Navbar = () => {
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
+  const [search, setSearch] = useState()
+  const dispach = useDispatch()
+  const navigate = useNavigate()
+
+  const handleSearch = (e)=>{
+    e.preventDefault()
+    console.log(products);
+    
+    dispach(setSearchTerm(search))
+    navigate('/filter-data')
+
+  }
 
   const openSignUp = () => {
     setIsLogin(false);
@@ -29,9 +42,10 @@ const Navbar = () => {
           <Link to="/">E-SHOP</Link>
         </div>
         <div className="relative flex-1 mx-4 text-md">
-          <form>
+          <form onSubmit={handleSearch}>
             <input
               className="w-full outline-none border py-2 px-4"
+              onChange={(e)=> setSearch(e.target.value)}
               type="text"
               placeholder="Search Product"
             />

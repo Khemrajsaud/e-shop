@@ -6,6 +6,8 @@ import Home from './Pages/Home'
 import Shop from './Pages/Shop'
 import Login from './Components/Login'
 import Cart from './Components/Cart'
+import FilterData from './Pages/FilterData'
+import Productss from './Pages/Productss'
 
 const App = () => {
  
@@ -18,10 +20,11 @@ const App = () => {
       <Route path='/shop' element={<Shop/>}/>
       <Route path='/cart' element={<Cart/>}/>
      
-
+      <Route path='/filter-data' element={<FilterData/>}/>
 
 
      </Routes>
+    
      <Footer/>
     </div>
   )
