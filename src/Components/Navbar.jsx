@@ -36,15 +36,15 @@ const Navbar = () => {
   console.log(products);
 
   return (
-    <nav className="bg-white shadow-md block">
-      <div className="flex items-center py-4 mx-3">
+    <nav className="bg-white shadow-md block ">
+      <div className="flex items-center justify-between py-4 mx-12 ">
         <div className="text-xl font-semibold"> 
           <Link to="/">E-SHOP</Link>
         </div>
-        <div className="relative flex-1 mx-4 text-md">
+        <div className="relative w-full max-w-3xl mx-4">
           <form onSubmit={handleSearch}>
             <input
-              className="w-full outline-none border py-2 px-4"
+              className="w-full outline-none border py-3 px-4 rounded-full"
               onChange={(e)=> setSearch(e.target.value)}
               type="text"
               placeholder="Search Product"
@@ -52,7 +52,8 @@ const Navbar = () => {
             <CiSearch className="absolute top-1/3 right-3 text-sm" />
           </form>
         </div>
-        <div className="flex items-center relative">
+       
+        <div className="flex items-center relative gap-6">
           <Link to="/cart" className="relative">
             <CiShoppingCart className="text-lg" />
             {products.length > 0 && (
@@ -66,8 +67,9 @@ const Navbar = () => {
             className=" hidden lg:block"
             onClick={() => setIsModelOpen(true)}
           >
-            Login | Register
+            Login
           </button>
+          
 
           <button className=" block md:hidden">
             <CiUser />

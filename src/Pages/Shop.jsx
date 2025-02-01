@@ -7,6 +7,8 @@ import Image3 from "../assets/Images/product3.jpg"
 import Image4 from "../assets/Images/product4.jpg"
 
 import Image5 from "../assets/Images/product5.jpg"
+import Image6 from "../assets/Images/product6.jpg"
+
 
 export const products = [
     
@@ -40,6 +42,13 @@ export const products = [
         name: "product 1",
         price: 29.33
     },
+
+    {
+      id: 6,
+      image: Image5,
+      name: "product 6",
+      price: 29.33
+  },
 ]
 import { addToCart } from '../redux/cartSlice';
 import { useDispatch } from 'react-redux';

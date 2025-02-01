@@ -6,6 +6,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Modal from './Modal';
 import ChangeAddress from './ChangeAddress';
 import { decreaseQuantity, increaseQuantity,  removeFromCart } from '../redux/cartSlice';
+import {useNavigate} from "react-router-dom"
 
 const Cart = () => {
     const cart = useSelector((state)=> state.cart)
@@ -18,6 +19,10 @@ const Cart = () => {
 
     const dispatch = useDispatch()
     const totalQuantity = products.reduce((acc,pruduct)=> acc+pruduct.quantity,0);
+    const totalPrice = products.reduce((sum, product) => sum + product.price * product.quantity, 0);
+
+    const navigate = useNavigate();
+    
 
     return (
         <div className='container mx-auto py-8 min-h-96 px-4 md:px-16 lg:px-24'>
@@ -77,10 +82,14 @@ const Cart = () => {
                             onClick={()=> setIsModelOpen(true) }>change address</button>
                         </div>
                         <div>
-                            <span >Total Price:${cart.totalPrice.toFixed(2)}</span>
-                            <span>{cart.totalPrice.toFixed(2)}</span>
+                            <span >Total Price:{totalPrice}</span>
+                            <span>{cart.totalPrice.toFixed()}</span>
                         </div>
-                        <button className='bg-red-600 py-2 px-5'>Proced to checket</button>
+                        <button 
+                        className='bg-red-600 py-2 px-5'
+                        onClick={()=> navigate('/checkout')}
+                        
+                        >Proced to checket</button>
                     </div>
                 </div>
                 <Modal
