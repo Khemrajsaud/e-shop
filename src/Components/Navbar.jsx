@@ -36,8 +36,8 @@ const Navbar = () => {
   console.log(products);
 
   return (
-    <nav className="bg-white shadow-md block ">
-      <div className="flex items-center justify-between py-4 mx-12 ">
+    <nav className="bg-white shadow-md block  ">
+      <div className="flex items-center justify-between py-4 mx-12  ">
         <div className="text-xl font-semibold"> 
           <Link to="/">E-SHOP</Link>
         </div>

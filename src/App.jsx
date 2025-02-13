@@ -10,6 +10,7 @@ import FilterData from './Pages/FilterData'
 import Checkout from './Pages/Checkout'
 import Order from './Pages/Order'
 
+
 const App = () => {
 
   const [order,setOrder] = useState(null)
@@ -17,6 +18,8 @@ const App = () => {
   return (
     <div>
       <Navbar/>
+   
+      
      
      <Routes>
       <Route path='/' element={<Home/>}/>
